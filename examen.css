@@ -1,0 +1,22 @@
+.jumbotron{
+    background-color: green;
+    height: 100%;
+    color: white;
+}
+
+body {
+    background-color: slategray;
+    height: 800px;
+}
+
+#form-structure{
+    margin: 20px;
+}
+
+tr, td, th{
+    text-align: center;
+}
+
+th{
+    background-color: #000000;
+}

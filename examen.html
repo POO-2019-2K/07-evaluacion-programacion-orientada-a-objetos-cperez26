@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='examen.css'>
+</head>
+
+<body>
+    <div>
+        <div class="jumbotron">
+            <h1>Lista de Tarea</h1>
+            <p>Registre las tareas a realizar</p>
+        </div>
+    </div>
+    <div>
+        <form id="form" class="form col-8 row justify-content-center needs-validation">
+            <div class="row col-8 justify-content-center form-group">
+                <h4>Agregar una nueva tarea</h4>
+            </div>
+            <div class="row col-8 justify-content-between form-group">
+                <label for="nombre">Nombre:</label>
+                <input id="nombre" class="form-control col-6" type="text" required>
+            </div>
+            <div class="row col-8 justify-content-between form-group">
+                <label for="fecha">Fecha de entrega</label>
+                <imput id="fecha" class="form-control col-6" type="date" required></imput>
+            </div>
+            <div class="form-group row col-8 justify-content-center">
+                <button id="btnAdd" class="btn btn-primary" type="button">Agregar</button>
+            </div>
+        </form>
+        <div class="row col-12">
+            <table id="table" class="table table-dark">
+                <thead>
+                    <tr>
+                        <th colspan="6">Lista de Tareas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="1" class="sub-header">
+                            <label for="sort">Ordenar por:</label>
+                        </td>
+                        <td colspan="5" class="sub-header">
+                            <select id="sort" class="form-control">
+                                <option value="ntarea">Numero de dias faltantes</option>
+                                <option value="ntareas">Numero de Tarea</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sub-header">Nombre</td>
+                        <td class="sub-header">Fecha</td>
+                        <td class="sub-header">Dias restantes</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+<script src='main.js'></script>
+
+</html>
