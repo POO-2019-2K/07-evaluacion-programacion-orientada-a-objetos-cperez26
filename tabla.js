@@ -44,4 +44,43 @@ export default class Tabla {
     this._addDeleteBtn(row, tarea);
   }
   
+  _addDeleteBtn(row, tarea){ 
+    let btnDelete = document.createElement("input");
+    btnDelete.type = "button";
+    btnDelete.value = "Borrar";
+    row.cells[3].innerHTML = "";
+    btnDelete.className = "btnDelete";
+    row.cells[3].appendChild(btnDelete);
+    btnDelete.addEventListener("click", () => {
+        this._deleteRow(tarea);
+    }); 
+  }
+
+  _deleteRow(tarea){
+      this._tareas = JSON.parse(localStorage.getItem("tareas"));
+      this._tareas.forEach((e, index) => {
+          if(e.nombre = tarea.nombre) {
+              this._tareas.splice(index, 1);
+          }
+      })
+      location.reload();
+      localStorage.setItem("tareas", JSON.stringify(this._tareas));
+  }
+
+  _compararTiempo(x, y) {
+    if (x.fechaFin > y.fechaFin) {
+      return 1;
+    }
+
+    if (x.fechaFin < y.fechaFin) {
+      return -1;
+    }
+    return 0;
+  }
+
+  mostrarTiempo() {
+    this._tareas.sort(this._compararTiempo);
+    location.reload();
+    localStorage.setItem("tareas", JSON.stringify(this._tareas));
+  }
 }
