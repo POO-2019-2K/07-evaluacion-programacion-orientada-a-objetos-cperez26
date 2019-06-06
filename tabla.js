@@ -1,86 +1,71 @@
-import Tarea from "./tarea.js";
+import Tarea from "./Tarea.js"
 
 export default class Tabla {
-  constructor(tablaL) {
-    this._tablaL= tableL;
-    this._tareas = [];
-    this._initTables();
-  }
+    constructor(tablaT) {
+        this._tablaTareas = tablaT;
+        this._tareasArray = [];
+        this._initTables();
 
-  _initTables() {
-    let lsTareas = JSON.parse(localStorage.getItem("tareas"));
-    if(lsTareas === null){
-      return;
-    }
-    lsTareas.forEach((e, index) => {
-      e.fechaFin = new Date(e.fechaFin);
-      this._showInTable(new Tarea(e));
-    });
-  }
-
-  addTarea(tarea) {
-      this._showInTable(tarea);
-      localStorage.setItem("tareas", JSON.stringify(this._tareas));
-  }
-
-  _showInTable(tarea) {
-    let row = this._tablaL.insertRow(-1);
-
-    let cellNombre = row.insertCell(0);   
-    let cellFechaFin = row.insertCell(1);
-    let cellDias = row.insertCell(2);
-    row.insertCell(3);
-
-    cellNombre.appendChild(document.createTextNode(tarea.nombre));
-    cellFechaFin.appendChild(document.createTextNode(tarea.getDateAsString()));
-    cellDias.appendChild(document.createTextNode(tarea.getDias()));
-
-    let objTarea = {
-      nombre: tarea.nombre,
-      fechaFin: tarea.fechaFin,
-    };
-
-    this._tareas.push(objTarea);
-    this._addDeleteBtn(row, tarea);
-  }
-  
-  _addDeleteBtn(row, tarea){ 
-    let btnDelete = document.createElement("input");
-    btnDelete.type = "button";
-    btnDelete.value = "Borrar";
-    row.cells[3].innerHTML = "";
-    btnDelete.className = "btnDelete";
-    row.cells[3].appendChild(btnDelete);
-    btnDelete.addEventListener("click", () => {
-        this._deleteRow(tarea);
-    }); 
-  }
-
-  _deleteRow(tarea){
-      this._tareas = JSON.parse(localStorage.getItem("tareas"));
-      this._tareas.forEach((e, index) => {
-          if(e.nombre = tarea.nombre) {
-              this._tareas.splice(index, 1);
-          }
-      })
-      location.reload();
-      localStorage.setItem("tareas", JSON.stringify(this._tareas));
-  }
-
-  _compararTiempo(x, y) {
-    if (x.fechaFin > y.fechaFin) {
-      return 1;
     }
 
-    if (x.fechaFin < y.fechaFin) {
-      return -1;
+    _initTables() {
+        let lstareas = JSON.parse(localStorage.getItem("tareas"));
+        if (lstareas === null) {
+            return;
+        }
+        lstareas.forEach((e, index) => {
+            e.fechaFin = new Date(e.fechaFin)
+            this._showInTable(new Tarea(e));
+        });
     }
-    return 0;
-  }
 
-  mostrarTiempo() {
-    this._tareas.sort(this._compararTiempo);
-    location.reload();
-    localStorage.setItem("tareas", JSON.stringify(this._tareas));
-  }
+    _cancelEdit(row, tarea) {
+        row.cells[0].innerHTML = tarea.nombre;
+        row.cells[1].innerHTML = tarea.getDateAsString();
+        this._addEditDeleteToRow(row, tarea);
+    }
+
+    _saveEdit(row, tarea, nuevaTarea) {
+        let pos = this._findtarea(tarea.email);
+        this._tareasArray[pos] = nuevaTarea;
+        localStorage.setItem('tareas', JSON.stringify(this._tareasArray));
+        this._cancelEdit(row, new Tarea(nuevaTarea));
+    }
+
+    _showInTable(tarea) {
+        let row = this._tablaTareas.insertRow(-1);
+
+        let cellNombre = row.insertCell(0)
+        let cellFechaFin = row.insertCell(1);
+        let cellDias = row.insertCell(2);
+
+        row.insertCell(3);
+        row.insertCell(4);
+
+        cellNombre.innerHTML = tarea.nombreA;
+        cellFechaFin.innerHTML = tarea.getDateAsString();
+        cellDias.innerHTML = tarea.getDias();
+
+        this._addEditDeleteToRow(row)
+
+        let objTarea = {
+            nombre: tarea.nombre,
+            fechaFin: tarea.fechaFin
+        }
+        this._tareasArray.push(objTarea);
+    }
+
+
+
+    addTarea(tarea) {
+
+        this._showInTable(tarea);
+
+        this._tareasArray.sort();
+        localStorage.setItem("tareas", JSON.stringify(this._tareasArray.sort()));
+        localStorage.setItem("tareas", JSON.stringify(this._tareasArray.sort()));
+    }
+
+
+
 }
