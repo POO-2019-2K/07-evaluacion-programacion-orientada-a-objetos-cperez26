@@ -24,7 +24,7 @@ class Main {
 
             let tareas = new Tabla(objTareas);
 
-            this._agenda.addEmployee(tareas);
+            this._agenda.addEmployees(tareas);
         });
         document.querySelector("#btnNombre").addEventListener("click", () => {
             this._agenda.mostrarAlfabeticamente();

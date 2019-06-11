@@ -182,7 +182,7 @@ export default class Tabla {
     }
 
 
-    addEmployee(tareas) {
+    addEmployees(tareas) {
         this._addContacto(tareas);
         localStorage.setItem("tareas", JSON.stringify(this._actividades));
         console.log(localStorage.getItem("tareas"));

@@ -23,13 +23,13 @@
             <div class="row col-8 justify-content-center form-group">
                 <h4>Agregar una nueva tarea</h4>
             </div>
-            <div class="row col-8 justify-content-between form-group">
+            <div class="row col-6 justify-content-between form-group" >
                 <label for="numero">Numero de Tarea</label>
-                <input type="text" class="form-control" id="numero" placeholder="1" />
+                <input type="number" class="form-control" id="numero" required></input> 
             </div>
             <div class="row col-8 justify-content-between form-group">
                 <label for="nombre">Nombre:</label>
-                <input id="nombre" class="form-control col-6" type="text" required>
+                <input id="nombre" class="form-control col-6" type="text" required></input>
             </div>
             <div class="row col-8 justify-content-between form-group">
                 <label for="fecha">Fecha de entrega</label>
@@ -41,7 +41,7 @@
         </form>
         <div class="row col-12">
             <table id="agenda" class="table">
-                <button class="col-md-6" id="btnNommbre" type="button" class="btn btn-primary">
+                <button class="col-md-6" id="btnNombre" type="button" class="btn btn-primary">
                     Nombre
                 </button>
                 <button class="col-md-6" id="btnDias" type="button" class="btn btn-primary">
@@ -74,6 +74,6 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 
-<script src='main.js'></script>
+<script src='main.js' type="module"></script>></script>
 
 </html>

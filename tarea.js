@@ -1,7 +1,7 @@
 export default class Tarea {
     constructor(tareas) {
         this._numero = tareas.numero;
-        this._tarea =  tareas.tarea.toUpperCase();
+        this._tarea =  tareas.tarea;
         this._fechaFin = tareas.fechaFin;
         this._months = [
             "Ene",
