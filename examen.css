@@ -1,11 +1,11 @@
 .jumbotron{
-    background-color: green;
+    background-color: #15AAB1;
     height: 100%;
     color: white;
 }
 
 body {
-    background-color: slategray;
+    background-color: #FFFCB2;
     height: 800px;
 }
 
@@ -18,6 +18,6 @@ tr, td, th{
 }
 
 th{
-    background-color: black;
-    color: white;
+    background-color: #D2FDE8;
+    color: black;
 }
