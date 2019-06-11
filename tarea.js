@@ -1,31 +1,46 @@
-
 export default class Tarea {
-  constructor(tarea) {
-      this._nombre = tarea.nombre;
-      this._fechaFin = tarea.fechaFin;
-  }
+    constructor(tareas) {
+        this._numero = tareas.numero;
+        this._tarea =  tareas.tarea.toUpperCase();
+        this._fechaFin = tareas.fechaFin;
+        this._months = [
+            "Ene",
+            "Feb",
+            "Mar",
+            "Abr",
+            "May",
+            "Jun",
+            "Jul",
+            "Ago",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dic"
+        ];
+    }
 
-  get nombre() {
-      return this._nombre;
-  }
+    get numero(){
+        return this._numero;
+    }
 
-  get fechaFin() {
-      return this._fechaFin;
-  }
+    get tarea(){
+        return this._tarea;
+    }
+    
 
-  getDateAsString() {
-      let d = this._fechaFin.getDate() 
-      + "/" + 
-      this._fechaFin.getMonth() 
-      + "/" + 
-      this._fechaFin.getFullYear();
-      return d;
-  }
+    getDateAsString(){
+        let fecha = this._fechaFin.getDate()+ "/" + this._months[this._fechaFin.getMonth()] + "/" + this._fechaFin.getFullYear();
+        return fecha;
+    }
 
-  getDias() {
-      let oneDay = (24 * 60 * 60 * 1000);
+    get fechaFin(){
+        return this._fechaFin;
+    }
 
-      let differenceMs = Math.abs(new Date() - this._fechaFin);
-      return Math.round(differenceMs / oneDay);
-  }
+    getDias() {
+        let oneDay= (24*60*60*1000);
+        let differenceMs = Math.abs(new Date() - this._fechaFin);
+        return Math.round(differenceMs / oneDay);
+        }
+
 }
