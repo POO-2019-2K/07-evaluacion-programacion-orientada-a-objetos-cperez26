@@ -2,6 +2,8 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/69163410ab854459a98bacb26aa7a0a9)](https://www.codacy.com/app/cperez26/07-evaluacion-programacion-orientada-a-objetos-cperez26?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/07-evaluacion-programacion-orientada-a-objetos-cperez26&amp;utm_campaign=Badge_Grade)
 
+[! [codebeat badge] (https://codebeat.co/badges/7a184541-93b8-4989-987c-8d40730aab30)] (https://codebeat.co/projects/github-com-poo-2019-2k-06 -app-agenda-cperez26-master)
+
 ## Instrucciones
 
 Utilizando HTML+CSS+JS+BOOSTRAP desarrollar una aplicación web que permita administrar una lista de tareas. La aplicación deberá contar:
