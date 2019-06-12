@@ -1,5 +1,7 @@
 # EXAMEN 04 Lista de Tareas
 
+git://github.com/POO-2019-2K/07-evaluacion-programacion-orientada-a-objetos-cperez26.git
+
 ## Instrucciones
 
 Utilizando HTML+CSS+JS+BOOSTRAP desarrollar una aplicación web que permita administrar una lista de tareas. La aplicación deberá contar:
