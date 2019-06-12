@@ -1,6 +1,6 @@
 # EXAMEN 04 Lista de Tareas
 
-git://github.com/POO-2019-2K/07-evaluacion-programacion-orientada-a-objetos-cperez26.git
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/69163410ab854459a98bacb26aa7a0a9)](https://www.codacy.com/app/cperez26/07-evaluacion-programacion-orientada-a-objetos-cperez26?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=POO-2019-2K/07-evaluacion-programacion-orientada-a-objetos-cperez26&amp;utm_campaign=Badge_Grade)
 
 ## Instrucciones
 
