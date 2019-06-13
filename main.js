@@ -6,26 +6,31 @@ class Main {
         this._agenda = new Tarea(document.querySelector("#agenda"));
 
         document.querySelector("#btnAdd").addEventListener("click", () => {
+            let form = document.querySelector("#form");
+            if (form.checkValidity() === true) {
             let numero = document.querySelector("#numero").value;
-            let tarea = document.querySelector("#nombre").value;
+            let nombre = document.querySelector("#nombre").value;
             let sFinal = document.querySelector("#fecha").value;
             sFinal = sFinal.split('-');
 
 
-            let final = new Date(sFinal[0], sFinal[1], sFinal[2]);
+            let fechaFin = new Date(sFinal[0], sFinal[1]-1, sFinal[2]);
 
 
             let objTareas = {
-                num: numero,
-                tarea: tarea,
-                final: final,
+                numero: numero,
+                nombre: nombre,
+                fechaFin: fechaFin
             }
 
-            let tareas = new Tabla(objTareas);
-            
-            this._agenda.addEmployees(tareas);
-        });
 
+            let tareas = new Tabla(objTareas);
+
+            this._agenda.addEmployees(tareas);
+            
+        }
+        form.classList.add("was-validated");
+        });
         document.querySelector("#btnNombre").addEventListener("click", () => {
             this._agenda.mostrarAlfabeticamente();
         });
