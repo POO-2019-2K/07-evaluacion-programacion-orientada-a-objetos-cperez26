@@ -3,7 +3,7 @@ import Tabla from "./tabla.js";
 
 class Main {
     constructor() {
-        this._agenda = new Tarea(document.querySelector("#agenda"));
+        this._agenda = new Tabla(document.querySelector("#agenda"));
 
         document.querySelector("#btnAdd").addEventListener("click", () => {
             let form = document.querySelector("#form");
@@ -24,18 +24,19 @@ class Main {
             }
 
 
-            let tareas = new Tabla(objTareas);
+            let tareas = new Tarea(objTareas);
 
-            this._agenda.addEmployees(tareas);
-            
+            this._agenda.addContactos(tareas);
         }
+
         form.classList.add("was-validated");
+        });
+
+        document.querySelector("#btnDias").addEventListener("click", () => {
+            this._agenda.mostrarNumericamente();
         });
         document.querySelector("#btnNombre").addEventListener("click", () => {
             this._agenda.mostrarAlfabeticamente();
-        });
-        document.querySelector("#btnDias").addEventListener("click", () => {
-            this._agenda.mostrarNumericamente();
         });
 
     }

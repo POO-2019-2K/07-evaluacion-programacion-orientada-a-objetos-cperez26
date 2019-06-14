@@ -3,11 +3,11 @@ import Tarea from "./tarea.js"
 export default class Tabla {
     constructor(tableAgenda) {
         this._tableAgenda = tableAgenda;
-        this._acti = [];
-        this._initTables2();
+        this._actividades = [];
+        this._initTables();
     }
 
-    _initTables2() {
+    _initTables() {
         let acti = JSON.parse(localStorage.getItem("tareas"));
         if (!acti) {
             return;
@@ -117,15 +117,15 @@ export default class Tabla {
         row.insertCell(5);
 
 
-        cellnum.innerHTML = tareas.numero;
+        cellnumero.innerHTML = tareas.numero;
         cellTarea.innerHTML = tareas.tarea;
-        cellfinal.innerHTML = tareas.getDateAsString();
-        cellDif.innerHTML = tareas.getDias();
+        cellfechaFin.innerHTML = tareas.getDateAsString();
+        cellDiferencia.innerHTML = tareas.getDias();
         this._addEditDeleteToRow(row, tareas);
 
 
         let objTareas = {
-            num: tareas.numero,
+            numero: tareas.numero,
             tarea: tareas.tarea,
             fechaFin: tareas.fechaFin,
         }
@@ -141,20 +141,21 @@ export default class Tabla {
         }
         return 0;
     }
-    _alfabeticamente() {
-        this._actividades.sort(this._alfabeticamente);
+    _oAlfabeticamente() {
+        this._actividades.sort(this._oAlfabeticamente);
     }
+
     mostrarAlfabeticamente() {
-        this._actividades.sort(this._alfabeticamente);
+        this._actividades.sort(this._oAlfabeticamente);
         localStorage.setItem("tareas", JSON.stringify(this._actividades));
         location.reload();
     }
 
     _numericamente(a, b) {
-        if (a.final < b.final) {
+        if (a.fechaFin < b.fechaFin) {
             return -1;
         }
-        if (a.final > b.final) {
+        if (a.fechaFin > b.fechaFin) {
             return 1;
         }
         return 0;
@@ -162,6 +163,7 @@ export default class Tabla {
     _nume() {
         this._actividades.sort(this._numericamente);
     }
+
     mostrarNumericamente() {
         this._actividades.sort(this._numericamente);
         localStorage.setItem("actividades", JSON.stringify(this._actividades));
@@ -182,7 +184,7 @@ export default class Tabla {
     }
 
 
-    addEmployees(tareas) {
+    addContactos(tareas) {
         this._addContacto(tareas);
         localStorage.setItem("tareas", JSON.stringify(this._actividades));
         console.log(localStorage.getItem("tareas"));
